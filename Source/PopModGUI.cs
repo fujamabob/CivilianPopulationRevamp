@@ -28,7 +28,7 @@ namespace CivilianPopulationRevamp
     /// </summary>
     public void Awake ()
     {
-      Debug.Log (debuggingClass.modName + this.name + " is starting Awake()!");
+      //Debug.Log (debuggingClass.modName + this.name + " is starting Awake()!");
       DontDestroyOnLoad (this);
       GameEvents.onGUIApplicationLauncherReady.Add (OnAppLauncherReady);//when AppLauncher can take apps, give it OnAppLauncherReady (mine)
       GameEvents.onGUIApplicationLauncherDestroyed.Add (OnAppLauncherDestroyed);//Not sure what this does
@@ -68,7 +68,7 @@ namespace CivilianPopulationRevamp
           null, null, null, null,                 //do nothing during hover, exiting, enable/disable
           ApplicationLauncher.AppScenes.FLIGHT,   //When to show applauncher/GUI button (only during flight)
           GameDatabase.Instance.GetTexture (assetFolder + iconFile, false));//where to look for mod applauncher icon
-        Debug.Log (debuggingClass.modName + "OnAppLauncherReady; button created!");
+        //Debug.Log (debuggingClass.modName + "OnAppLauncherReady; button created!");
       }
       CivPopGUIOn = false;
     }
@@ -80,7 +80,7 @@ namespace CivilianPopulationRevamp
     private static void OnToggleTrue ()
     {
       CivPopGUIOn = true;//turns on flag for GUI
-      Debug.Log (debuggingClass.modName + "Turning on GUI");
+      //Debug.Log (debuggingClass.modName + "Turning on GUI");
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ namespace CivilianPopulationRevamp
     private static void OnToggleFalse ()
     {
       CivPopGUIOn = false;//turns off flag for GUI
-      Debug.Log (debuggingClass.modName + "Turning off GUI");
+      //Debug.Log (debuggingClass.modName + "Turning off GUI");
     }
       
     /// <summary>
@@ -132,7 +132,7 @@ namespace CivilianPopulationRevamp
         GUILayout.BeginVertical ();
         if (GUILayout.Button ("Show Civilian Info")) {
           showPopInfo = !showPopInfo;
-          Debug.Log (debuggingClass.modName + "Civilian Info button pressed. New value:  " + showPopInfo);
+          //Debug.Log (debuggingClass.modName + "Civilian Info button pressed. New value:  " + showPopInfo);
         }
         if (showPopInfo) {
           if (listCivilians.FirstOrDefault () != null) {
@@ -142,7 +142,7 @@ namespace CivilianPopulationRevamp
                 GUILayout.Label (crewMember.trait);
                 GUILayout.Label (crewMember.name);
                 if(GUILayout.Button("EVA")){
-                  Debug.Log (debuggingClass.modName + "User pressed button to initiate EVA of " + crewMember.name);
+                  //Debug.Log (debuggingClass.modName + "User pressed button to initiate EVA of " + crewMember.name);
                   FlightEVA.SpawnEVA (crewMember.KerbalRef);
                 }
                 /*if(GUILayout.Button("Transfer")){
@@ -165,7 +165,7 @@ namespace CivilianPopulationRevamp
       {
         GUILayout.FlexibleSpace ();
         if (GUILayout.Button ("Close this Window", GUILayout.Width (200f))) {
-          Debug.Log (debuggingClass.modName + "Closing CivPopGUI window");
+          //Debug.Log (debuggingClass.modName + "Closing CivPopGUI window");
           OnToggleFalse ();
         }
         GUILayout.FlexibleSpace ();
